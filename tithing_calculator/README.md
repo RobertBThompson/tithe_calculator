@@ -5,3 +5,5 @@ A flutter build calculator that calculates tithing based on "interest annually" 
 ## Getting Started
 
 This project is in development as a Flutter application.
+
+Email for more information.
