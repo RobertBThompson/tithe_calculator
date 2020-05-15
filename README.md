@@ -1,6 +1,6 @@
-# tithing_calculator
+# tithe_calculator
 
-A new Flutter project.
+A flutter calculator that calculates "interest annually" as increase
 
 ## Getting Started
 
