@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                             Icons.arrow_drop_up,
                             color: Colors.brown[600],
                           ),
-                          Text("Input Recurring",
+                          Text("Add Recurring",
                               style: GoogleFonts.nunito(
                                   textStyle: TextStyle(
                                 color: Colors.brown[600],
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             Icons.arrow_drop_up,
                             color: Colors.brown[600],
                           ),
-                          Text("Input One Time",
+                          Text("Add One Time",
                               style: GoogleFonts.nunito(
                                   textStyle: TextStyle(
                                 color: Colors.brown[600],
