@@ -25,13 +25,13 @@ class _TubState extends State<Tub> {
   StreamBuilder _buildTub(BuildContext context) {
     final daoP = Provider.of<DbtwoDao>(context);
     return StreamBuilder(
-        stream: daoP.sumerValues(),
-        builder: (context, AsyncSnapshot snapshot) {
+      stream: daoP.sumerValues(),
+      builder: (context, AsyncSnapshot snapshot) {
+        if(snapshot.hasData){
           final simple = snapshot.data;
-          double _tithe = Provider.of<Bubby>(context, listen: true)
-                  .currentValue
-                  .toDouble() /
-              100;
+          double _tithe =
+              Provider.of<Bubby>(context, listen: true).currentValue.toDouble() /
+                  100;
           final daily = simple * _tithe;
           controller1 = MoneyMaskedTextController(
             initialValue: daily,
@@ -41,20 +41,31 @@ class _TubState extends State<Tub> {
             precision: 2,
           );
           return Container(
-              padding: EdgeInsets.all(4.0),
-              child: Column(children: <Widget>[
-                Text("PAY ONCE",
-                    style: GoogleFonts.ubuntu(
-                        textStyle: TextStyle(
-                            color: Color(0xFF630f02),
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600))),
+            padding: EdgeInsets.all(4.0),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "PAY ONCE",
+                  style: GoogleFonts.sortsMillGoudy(
+                    textStyle: TextStyle(
+                      color: Color(0xFF630f02),
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
                 SizedBox(height: 3.0),
                 Text(
                   controller1.text,
                   style: TextStyle(fontSize: 13.0, color: Colors.white),
                 ),
-              ]));
-        });
+              ],
+            ),
+          );
+        }else{
+          return SizedBox.shrink();
+        }
+      },
+    );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:tithing_calculator/widgets/display_slider.dart';
 import '../database/tithe_db.dart';
 import 'package:provider/provider.dart';
+import '../home.dart';
 
 class Sub extends StatefulWidget {
   const Sub({
@@ -21,14 +22,18 @@ class _SubState extends State<Sub> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildSub(context);
+    return Consumer(
+      builder: (context, Rubby rubby, child) => child,
+      child: _buildSub(context),
+    );
   }
 
   StreamBuilder _buildSub(BuildContext context) {
-    final daoP = Provider.of<DboneDao>(context);
+    final daoP = Provider.of<DboneDao>(context, listen: true);
     return StreamBuilder(
-        stream: daoP.sumValues(),
-        builder: (context, AsyncSnapshot snapshot) {
+      stream: daoP.sumValues(),
+      builder: (context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
           final simple = snapshot.data;
           double _tithe = Provider.of<Bubby>(context, listen: true)
                   .currentValue
@@ -59,90 +64,107 @@ class _SubState extends State<Sub> {
             precision: 2,
           );
           return Container(
-              padding: EdgeInsets.only(left: 4.0, right: 4.0, bottom: 10.0),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    RaisedButton(
-                      onPressed: () => {},
-                      elevation: 12.0,
-                      color: Colors.brown[200],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0),
-                      ),
-                      child: Container(
-                          padding: EdgeInsets.all(4.0),
-                          child: Column(children: <Widget>[
-                            Text("DAILY",
-                                style: GoogleFonts.ubuntu(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF630f02),
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600))),
-                            SizedBox(height: 3.0),
-                            Text(
-                              controller1.text,
-                              style: TextStyle(
-                                  fontSize: 13.0, color: Colors.white),
+            padding: EdgeInsets.only(left: 4.0, right: 4.0, bottom: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () => {},
+                  elevation: 12.0,
+                  color: Colors.brown[200],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13.0),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(4.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "DAILY",
+                          style: GoogleFonts.sortsMillGoudy(
+                            textStyle: TextStyle(
+                              color: Color(0xFF630f02),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
                             ),
-                          ])),
+                          ),
+                        ),
+                        SizedBox(height: 3.0),
+                        Text(
+                          controller1.text,
+                          style: TextStyle(fontSize: 13.0, color: Colors.white),
+                        ),
+                      ],
                     ),
-                    RaisedButton(
-                      onPressed: () => {},
-                      elevation: 12.0,
-                      color: Colors.brown[200],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0),
-                      ),
-                      child: Container(
-                          padding: EdgeInsets.all(4.0),
-                          child: Column(children: <Widget>[
-                            Text("MONTHLY",
-                                style: GoogleFonts.ubuntu(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF630f02),
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600))),
-                            SizedBox(height: 3.0),
-                            Text(
-                              controller2.text,
-                              style: TextStyle(
-                                  fontSize: 13.0, color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  onPressed: () => {},
+                  elevation: 12.0,
+                  color: Colors.brown[200],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13.0),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(4.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "MONTHLY",
+                          style: GoogleFonts.sortsMillGoudy(
+                            textStyle: TextStyle(
+                              color: Color(0xFF630f02),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
                             ),
-                          ])),
+                          ),
+                        ),
+                        SizedBox(height: 3.0),
+                        Text(
+                          controller2.text,
+                          style: TextStyle(fontSize: 13.0, color: Colors.white),
+                        ),
+                      ],
                     ),
-                    RaisedButton(
-                      onPressed: () => {},
-                      elevation: 12.0,
-                      color: Colors.brown[200],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0),
-                      ),
-                      child: Container(
-                          padding: EdgeInsets.all(4.0),
-                          child: Column(children: <Widget>[
-                            Text("YEARLY",
-                                style: GoogleFonts.ubuntu(
-                                    textStyle: TextStyle(
-                                        color: Color(0xFF630f02),
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600))),
-                            SizedBox(height: 3.0),
-                            Text(
-                              controller3.text,
-                              style: TextStyle(
-                                  fontSize: 13.0, color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  onPressed: () => {},
+                  elevation: 12.0,
+                  color: Colors.brown[200],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13.0),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(4.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "YEARLY",
+                          style: GoogleFonts.sortsMillGoudy(
+                            textStyle: TextStyle(
+                              color: Color(0xFF630f02),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
                             ),
-                          ])),
+                          ),
+                        ),
+                        SizedBox(height: 3.0),
+                        Text(
+                          controller3.text,
+                          style: TextStyle(fontSize: 13.0, color: Colors.white),
+                        ),
+                      ],
                     ),
-                  ]));
-        });
+                  ),
+                ),
+              ],
+            ),
+          );
+        } else {
+          return SizedBox.shrink();
+        }
+      },
+    );
   }
-
-// Consumer<Rubby>(builder: (context, Rubby, child){
-//   return 
-// };
-
-// )
-
 }
