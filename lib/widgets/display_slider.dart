@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../main.dart';
 
 class Bub extends StatefulWidget {
   @override
@@ -31,7 +30,7 @@ class _BubState extends State<Bub> {
                 });
               }),
           Text('${diezmo.round()}' "%",
-              style: GoogleFonts.dekko(
+              style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                       color: Color(0xFF02401a),
                       fontSize: 19.0,

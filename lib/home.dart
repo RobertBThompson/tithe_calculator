@@ -17,13 +17,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Column(
-        children: <Widget>[
-          DisplayTop(),
-          RecurringList(),
-          OneTimeList(),
-        ],
-      )),
+        child: Column(
+          children: <Widget>[
+            DisplayTop(),
+            RecurringList(),
+            OneTimeList(),
+          ],
+        ),
+      ),
       bottomNavigationBar: Container(
         color: Colors.brown[50],
         padding: EdgeInsets.all(5.0),
@@ -32,77 +33,97 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Expanded(
               child: Container(
-                  height: 50.0,
-                  child: GestureDetector(
-                      onTap: () {
-                        _onTapR();
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.arrow_drop_up,
-                            color: Colors.brown[600],
-                          ),
-                          Text("Input Recurring",
-                              style: GoogleFonts.nunito(
-                                  textStyle: TextStyle(
-                                color: Colors.brown[600],
-                                fontSize: 13.0,
-                              ))),
-                        ],
-                      ))),
-            ),
-            Expanded(
-              child: FloatingActionButton(
-                elevation: 18.0,
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
-                onPressed: () {
-                  Provider.of<Rubby>(context, listen: false).taken();
-                },
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                height: 50.0,
+                child: GestureDetector(
+                  onTap: () {
+                    _onTapR();
+                  },
+                  child: Column(
                     children: <Widget>[
-                      Text("SAVE",
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: Colors.green[300],
-                                  fontSize: 9.0,
-                                  fontWeight: FontWeight.w600))),
                       Icon(
-                        Icons.done_outline,
-                        size: 20.0,
+                        Icons.arrow_drop_up,
+                        color: Colors.brown[600],
                       ),
-                      Text("ADD",
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: Colors.green[300],
-                                  fontSize: 9.0,
-                                  fontWeight: FontWeight.w600)))
-                    ]),
+                      Text(
+                        "Input Recurring",
+                        style: GoogleFonts.sortsMillGoudy(
+                          textStyle: TextStyle(
+                            color: Colors.brown[600],
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
+            // Expanded(
+            //   child: FloatingActionButton(
+            //     elevation: 18.0,
+            //     backgroundColor: Colors.brown,
+            //     foregroundColor: Colors.white,
+            //     onPressed: () {
+            //       setState(() {});
+            //       Provider.of<Rubby>(context, listen: false).taken();
+            //     },
+            //     child: Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: <Widget>[
+            //         Text(
+            //           "SAVE",
+            //           style: GoogleFonts.nunito(
+            //             textStyle: TextStyle(
+            //               color: Colors.green[300],
+            //               fontSize: 9.0,
+            //               fontWeight: FontWeight.w600,
+            //             ),
+            //           ),
+            //         ),
+            //         Icon(
+            //           Icons.done_outline,
+            //           size: 20.0,
+            //         ),
+            //         Text(
+            //           "ADD",
+            //           style: GoogleFonts.nunito(
+            //             textStyle: TextStyle(
+            //               color: Colors.green[300],
+            //               fontSize: 9.0,
+            //               fontWeight: FontWeight.w600,
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             Expanded(
               child: Container(
-                  height: 50.0,
-                  child: GestureDetector(
-                      onTap: () {
-                        _onTapO();
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.arrow_drop_up,
+                height: 50.0,
+                child: GestureDetector(
+                  onTap: () {
+                    _onTapO();
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Icon(
+                        Icons.arrow_drop_up,
+                        color: Colors.brown[600],
+                      ),
+                      Text(
+                        "Input One Time",
+                        style: GoogleFonts.sortsMillGoudy(
+                          textStyle: TextStyle(
                             color: Colors.brown[600],
+                            fontSize: 14.0,
                           ),
-                          Text("Input One Time",
-                              style: GoogleFonts.nunito(
-                                  textStyle: TextStyle(
-                                color: Colors.brown[600],
-                                fontSize: 13.0,
-                              ))),
-                        ],
-                      ))),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -110,8 +131,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _onTapR() {
-    showModalBottomSheet(
+  void _onTapR() async {
+    await showModalBottomSheet(
       enableDrag: true,
       isScrollControlled: true,
       context: context,
@@ -119,10 +140,11 @@ class _HomePageState extends State<HomePage> {
         return Linput();
       },
     );
+    setState(() {});
   }
 
-  void _onTapO() {
-    showModalBottomSheet(
+  void _onTapO() async {
+    await showModalBottomSheet(
       enableDrag: true,
       isScrollControlled: true,
       context: context,
@@ -130,12 +152,15 @@ class _HomePageState extends State<HomePage> {
         return Rinput();
       },
     );
+    setState(() {});
   }
 }
 
 class Rubby extends ChangeNotifier {
   bool take;
   Rubby(this.take);
-  void taken() => take = true;
-  notifyListeners();
+  void taken() {
+    take = true;
+    notifyListeners();
+  }
 }

@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:moor_flutter/moor_flutter.dart' hide Column;
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import '../database/tithe_db.dart';
-import 'package:provider/provider.dart';
 import 'display_calc_one.dart';
 import 'display_calc_two.dart';
 import 'display_slider.dart';
@@ -18,7 +13,7 @@ class _DisplayTopState extends State<DisplayTop> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 290,
+      height: 316,
       child: Column(
         children: <Widget>[
           Container(height: 36.0),
@@ -32,11 +27,24 @@ class _DisplayTopState extends State<DisplayTop> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[                        
                         Text("TITHING CALCULATOR  ",
-                            style: GoogleFonts.cormorant(
+                            style: GoogleFonts.sortsMillGoudy(
                                 textStyle: TextStyle(
                                     color: Color(0xFF02401a),
-                                    fontSize: 28.0,
+                                    fontSize: 23.0,
                                     fontWeight: FontWeight.w600))),
+                      ])),
+              Container(
+                  height: 30.0,
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[                        
+                        Text("~ breakdown \"interest annually\"  ",
+                            style: GoogleFonts.sortsMillGoudy(
+                                textStyle: TextStyle(
+                                    color: Color(0xFF02401a),
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w400))),
                       ])),
               Bub(),
             ]),
@@ -58,7 +66,7 @@ class _DisplayTopState extends State<DisplayTop> {
                   padding: EdgeInsets.only(left: 18.0),
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "RECURRING CALCULTIONS",
+                    "RECURRING CALCULATIONS",
                     style: TextStyle(
                       fontWeight: FontWeight.w300,
                       color: Color(0xFF543f03),

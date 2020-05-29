@@ -1,6 +1,13 @@
 import 'package:moor_flutter/moor_flutter.dart';
 part 'tithe_db.g.dart';
 
+
+TitheDb _instance;
+TitheDb get database {
+  return _instance ??= TitheDb();
+}
+
+
 class Dbones extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get benefit => text().nullable()(); // daily water
@@ -44,45 +51,57 @@ class TitheDb extends _$TitheDb {
       }, beforeOpen: (details) async {
         if (details.wasCreated) {
           await into(dbones).insert(DbonesCompanion(
-            benefit: Value("Housing Residence Equity"),
-            value: Value(2500.00),
+            benefit: Value("Housing Equity"),
+            value: Value(1247.00),
             time: Value(12.0),
-            totalValue: Value(30000.00),
+            totalValue: Value(14964.00),
           ));
           await into(dbones).insert(DbonesCompanion(
-            benefit: Value("Income Property Equity"),
-            value: Value(1750.00),
+            benefit: Value("Cable Internet"),
+            value: Value(75.00),
             time: Value(12.0),
-            totalValue: Value(21000.00),
+            totalValue: Value(900.00),
           ));
           await into(dbones).insert(DbonesCompanion(
             benefit: Value("Water Usage"),
-            value: Value(80.00),
-            time: Value(12.0),
-            totalValue: Value(960.00),
+            value: Value(15.00),
+            time: Value(52.0),
+            totalValue: Value(780.00),
           ));
           await into(dbones).insert(DbonesCompanion(
             benefit: Value("Food Consumption"),
-            value: Value(20.00),
+            value: Value(210.00),
+            time: Value(26.0),
+            totalValue: Value(5460.00),
+          ));
+          await into(dbones).insert(DbonesCompanion(
+            benefit: Value("Air To Breath"),
+            value: Value(6.00),
             time: Value(365.0),
-            totalValue: Value(7300.00),
+            totalValue: Value(2190.00),
+          ));
+          await into(dbones).insert(DbonesCompanion(
+            benefit: Value("Transportation"),
+            value: Value(18.00),
+            time: Value(365.0),
+            totalValue: Value(6570.00),
           ));
 
           await into(dbtwos).insert(DbtwosCompanion(
-            benefit: Value("Water Storage"),
-            value: Value(10.00),
+            benefit: Value("Pants and Shirts"),
+            value: Value(128.56),
           ));
           await into(dbtwos).insert(DbtwosCompanion(
-            benefit: Value("Food Storage"),
-            value: Value(10.00),
+            benefit: Value("Food Storage Purchase"),
+            value: Value(42.81),
           ));
           await into(dbtwos).insert(DbtwosCompanion(
-            benefit: Value("Disneyland"),
+            benefit: Value("Disneyland Ticket"),
             value: Value(110.00),
           ));
           await into(dbtwos).insert(DbtwosCompanion(
             benefit: Value("Golf Clubs"),
-            value: Value(880.00),
+            value: Value(482.29),
           ));
 
           await customStatement('PRAGMA foreign_keys = ON');

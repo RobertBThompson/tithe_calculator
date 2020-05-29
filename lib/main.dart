@@ -11,13 +11,22 @@ main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final database = TitheDb();
     return MultiProvider(
       providers: [
-        Provider(create: (_) => database.dboneDao,),
-        Provider(create: (_) => database.dbtwoDao,),
-        ChangeNotifierProvider<Bubby>(create: (_) => Bubby(10),),
-        ChangeNotifierProvider(create: (_) => Rubby(true),),
+        Provider(
+          create: (_) => database.dboneDao,
+          dispose: (context, db) => database.close(),
+        ),
+        Provider(
+          create: (_) => database.dbtwoDao,
+          dispose: (context, db) => database.close(),
+        ),
+        ChangeNotifierProvider<Bubby>(
+          create: (_) => Bubby(10),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => Rubby(true),
+        ),
       ],
       child: MaterialApp(
         title: "Material App",
