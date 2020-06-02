@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:tithing_calculator/widgets/display_slider.dart';
+import 'package:tithe_calculator/widgets/display_slider.dart';
 import '../database/tithe_db.dart';
 import 'package:provider/provider.dart';
 import '../home.dart';
