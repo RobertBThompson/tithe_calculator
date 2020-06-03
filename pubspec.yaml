@@ -1,5 +1,5 @@
-name: tithing_calculator
-description: Increase-based Tithing Calculator
+name: tithe_calculator
+description: Increase-based Tithe Calculator
 
 version: 1.0.0+1
 
@@ -14,13 +14,19 @@ dependencies:
   moor_flutter: ^2.1.1
   cupertino_icons: ^0.1.2
   provider: ^4.1.0
-  flutter_masked_text: ^0.8.0
+  flutter_masked_text: ^0.8.0  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   moor_generator: ^2.4.0
   build_runner:
+  flutter_launcher_icons: ^0.7.5
+
+flutter_icons:
+  image_path: "assets/copy.png"
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true

@@ -26,7 +26,7 @@ class _DisplayTopState extends State<DisplayTop> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[                        
-                        Text("TITHING CALCULATOR  ",
+                        Text("TITHE CALCULATOR  ",
                             style: GoogleFonts.sortsMillGoudy(
                                 textStyle: TextStyle(
                                     color: Color(0xFF02401a),
