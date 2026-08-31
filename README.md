@@ -1,16 +1,32 @@
-# tithe_calculator
+# Project: [Tithing Calculator]
 
-A flutter calculator that calculates "interest annually" as increase
+## Overview
+It's a "benefit of living"..."everyday increase"..."consumption as increase" tithing calculator — imputed value of everything consumed/benefited from (housing, food, water, air, transportation, clothes, etc.), which is one approach to defining "increase" other than income.
 
-## Getting Started
+## Stack
+- Flutter (Dart) — [version]
+- Supabase — project ref: [xxxx], region: [xxxx]
+- State management: [Riverpod/Provider/Bloc/etc.]
+- Key packages: [list any non-default packages you rely on]
 
-This project is a starting point for a Flutter application.
+## Architecture Conventions
+- Folder structure: [e.g., feature-first under lib/features/]
+- Naming: [e.g., snake_case files, PascalCase widgets]
+- Where Supabase calls live: [e.g., lib/services/, one repository class per table]
 
-A few resources to get you started if this is your first Flutter project:
+## Supabase Schema Notes
+- Key tables: [table names + one-line purpose each]
+- RLS policies: [anything non-obvious Claude should know before writing queries]
+- Auth: [email/magic link/OAuth — whatever you use]
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Build & Run
+- `flutter pub get`
+- `flutter run -d [device]`
+- Tests: `flutter test`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Things to avoid
+- [e.g., "Don't modify the generated l10n files directly"]
+- [e.g., "Don't touch pubspec.lock manually"]
+
+## Current focus
+[Update this section per session — what you're actively working on]
